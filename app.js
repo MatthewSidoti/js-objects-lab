@@ -68,7 +68,7 @@ game.party.push(pokemon[28]) //used the push method
 game.party.push(pokemon[13])
 game.party.push(pokemon[20])
 console.log(game.party)
-
+// pokemon.filter("earth")
 
 /*
 Exercise 6
@@ -142,8 +142,14 @@ After writing this method, call it and pass in a Pokemon object of your choice f
 
 Solve Exercise 10 here:
 */
+game= {
+  catchPokemon: []
 
-
+  catchPokemon: function(pokemonObj) {
+  this.party.push(pokemonObj);
+}
+};
+game.catchPokemon([78])
 
 /*
 Exercise 11
@@ -202,7 +208,25 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 Solve Exercise 13 here:
 */
 
+gymStatus() {
 
+  const gymTally = { completed: 0, incomplete: 0 };
+
+
+  this.gyms.forEach(gym => {
+    if (gym.completed) {
+      gymTally.completed++;
+    } else {
+      gymTally.incomplete++;
+    }
+  });
+
+ 
+  console.log(gymTally);
+};
+
+
+game.gymStatus()
 
 
 /*
