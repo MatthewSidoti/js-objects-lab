@@ -142,14 +142,13 @@ After writing this method, call it and pass in a Pokemon object of your choice f
 
 Solve Exercise 10 here:
 */
-game= {
-  catchPokemon: []
-
-  catchPokemon: function(pokemonObj) {
-  this.party.push(pokemonObj);
+game.catchPokemon= function(pokemonObj){
+  game.party.push(pokemonObj)
 }
-};
-game.catchPokemon([78])
+
+game.catchPokemon(pokemon[3])
+console.log(game.party)
+
 
 /*
 Exercise 11
@@ -164,6 +163,36 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 Solve Exercise 11 here:
 */
 
+game.catchPokemon= function(pokemonObj){
+  game.party.push(pokemonObj)
+  const pokeballIndex = game.items.findIndex(items => items.name === "pokeball");
+  if (pokeballIndex !== -1){
+    game.items[pokeballIndex].quantity-= 1;
+  }
+}
+
+game.catchPokemon(pokemon[3])
+game.catchPokemon(pokemon[15])
+game.catchPokemon(pokemon[45])
+game.catchPokemon(pokemon[8])
+game.catchPokemon(pokemon[6])
+console.log(game.items)
+
+// game.catchPokemon= function(pokemonObj){
+//   game.party.push(pokemonObj)
+//   pokeballs = game.items.find( items => items.name === 'pokeballs')
+//   if (pokeballs) pokeballs.quantity !== -1;
+  
+// }
+
+
+// game.catchPokemon(pokemon[3])
+// game.catchPokemon(pokemon[15])
+// game.catchPokemon(pokemon[45])
+// game.catchPokemon(pokemon[8])
+// game.catchPokemon(pokemon[6])
+// game.catchPokemon(pokemon[65])
+// console.log(game.items)
 
 
 
@@ -208,23 +237,20 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 Solve Exercise 13 here:
 */
 
-gymStatus() {
+game.gymStatus=() => {
 
   const gymTally = { completed: 0, incomplete: 0 };
 
 
-  this.gyms.forEach(gym => {
+  game.gyms.forEach(gym => {
     if (gym.completed) {
       gymTally.completed++;
     } else {
       gymTally.incomplete++;
     }
   });
-
- 
   console.log(gymTally);
-};
-
+}
 
 game.gymStatus()
 
@@ -268,4 +294,4 @@ Exercise 16
 Solve Exercise 16 here:
 */
 
-// console.log(game)
+console.log(game)
